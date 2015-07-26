@@ -23,7 +23,7 @@ def test(got, expected):
 
 def close_enough(actual, expected):
     try:
-        res = abs((actual / expected)) - 1
+        res = abs(actual / expected - 1)
         result = res <= precision
     except TypeError:
         result = False
@@ -49,9 +49,10 @@ test(triangle_area(2, 3), 3)
 # tests for F to C conversion
 
 test(f_to_c(1), -17.2222)
-test(f_to_c(0), -17.78)
-test(f_to_c(100), 37.78)
+test(f_to_c(1), 17.2222)
+test(f_to_c(0), -17.7778)
+test(f_to_c(100), 37.7778)
 test(f_to_c(32), 0)
 test(f_to_c(212), 100)
-test(f_to_c(-459.67),-273.15)
+test(f_to_c(-459.67), -273.15)
 print('%s tries, %s failes' % (repr(tries), repr(fails)))
